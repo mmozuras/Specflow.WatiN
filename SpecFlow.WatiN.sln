@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.WatiN", "src\SpecFlow.WatiN\SpecFlow.WatiN.csproj", "{A65C651D-31C9-4313-8C53-D8D314D395EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpecFlow.WatiN.Tests", "tests\SpecFlow.WatiN.Tests\SpecFlow.WatiN.Tests.csproj", "{0BB48DD4-10EC-4909-837A-AC2220524D62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A65C651D-31C9-4313-8C53-D8D314D395EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65C651D-31C9-4313-8C53-D8D314D395EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65C651D-31C9-4313-8C53-D8D314D395EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65C651D-31C9-4313-8C53-D8D314D395EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BB48DD4-10EC-4909-837A-AC2220524D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BB48DD4-10EC-4909-837A-AC2220524D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BB48DD4-10EC-4909-837A-AC2220524D62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BB48DD4-10EC-4909-837A-AC2220524D62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
