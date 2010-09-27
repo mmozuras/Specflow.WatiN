@@ -26,6 +26,14 @@ namespace SpecFlow.WatiN
             FindBy<Link>(text).Click();
         }
 
+        [Given("I click \"(.*)\" and wait (\\d+) seconds")]
+        [When("I click \"(.*)\" and wait (\\d+) seconds")]
+        public void ClickAndWait(string text, int seconds)
+        {
+            Click(text);
+            Wait(seconds);
+        }
+
         [Given("I click \"(.*)\" and confirm the popup")]
         [When("I click \"(.*)\" and confirm the popup")]
         public void ClickAndConfirm(string text)
@@ -57,9 +65,17 @@ namespace SpecFlow.WatiN
 
         [Given("I press \"(.*)\"")]
         [When("I press \"(.*)\"")]
-        public void Press(string value)
+        public void Press(string text)
         {
-            FindBy<Button>(value).Click();
+            FindBy<Button>(text).Click();
+        }
+
+        [Given("I press \"(.*)\" and wait (\\d+) seconds")]
+        [When("I press \"(.*)\" and wait (\\d+) seconds")]
+        public void PressAndWait(string text, int seconds)
+        {
+            Press(text);
+            Wait(seconds);
         }
 
         [Given("I press Enter")]
@@ -67,6 +83,14 @@ namespace SpecFlow.WatiN
         public void PressEnter()
         {
             SendKeys.SendWait("{ENTER}");
+        }
+
+        [Given("I press Enter and wait (\\d+) seconds")]
+        [When("I press Enter and wait (\\d+) seconds")]
+        public void PressEnterAndWait(int seconds)
+        {
+            PressEnter();
+            Wait(seconds);
         }
 
         [Given("I fill in \"([^\"]*)\" with \"([^\"]*)\"")]
@@ -126,12 +150,11 @@ namespace SpecFlow.WatiN
             Thread.Sleep(seconds * 1000);
         }
 
-        //TODO:
-        // When I click the "Apply now" image (using alt text)
-        // When I do something (press button) and wait 5 seconds
-        // Then I should see a div with id "x"
-        // Given I Wait until I see something (div with id etc."
-        // When I attach the file at "path" to "file field"
-        // When I move the mouse over the div containing "more information" (and other JS events)
+        [Given("I click the \"(.*)\" image")]
+        [When("I click the \"(.*)\" image")]
+        public void ClickImage(string text)
+        {
+            Browser.Image(x => x.Alt == text).Click();
+        }
     }
 }

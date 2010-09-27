@@ -35,14 +35,19 @@ namespace SpecFlow.WatiN
             checkBox.Checked.ShouldEqual(false);
         }
 
-        public static void ShouldBeNull(this Element anObject)
+        public static void ShouldNotExist(this Element element)
         {
-            Assert.IsNull(anObject);
+            if (element != null)
+            {
+                element.Exists.ShouldEqual(false);
+            }
+            Assert.IsNull(element);
         }
 
-        public static Element ShouldNotBeNull(this Element element)
+        public static Element ShouldExist(this Element element)
         {
             Assert.IsNotNull(element);
+            element.Exists.ShouldEqual(true);
             return element;
         }
     }

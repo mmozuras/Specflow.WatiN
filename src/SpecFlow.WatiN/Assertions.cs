@@ -21,14 +21,14 @@ namespace SpecFlow.WatiN
         [Then("I should see a link to \"(.*)\"")]
         public void SeeLinkTo(string text)
         {
-            Browser.Link(Find.ByText(text)).ShouldNotBeNull();
+            Browser.Link(Find.ByText(text)).ShouldExist();
         }
 
         [Then("I should see a link to \"(.*)\" with the url (.*)")]
         public void SeeLinkToWithUrlTo(string text, string url)
         {
             Browser.Link(Find.ByUrl(url))
-                .ShouldNotBeNull()
+                .ShouldExist()
                 .Text.ShouldEqual(text);
         }
 
@@ -36,14 +36,14 @@ namespace SpecFlow.WatiN
         public void SeeLinkThatContainsAndTheUrl(string text, string url)
         {
             Browser.Link(Find.ByUrl(url))
-                .ShouldNotBeNull()
+                .ShouldExist()
                 .Text.ShouldContain(text);
         }
 
         [Then("I should see a link with the url \"(.*)\"")]
         public void SeeLinkWithUrlTo(string url)
         {
-            Browser.Link(Find.ByUrl(url)).ShouldNotBeNull();
+            Browser.Link(Find.ByUrl(url)).ShouldExist();
         }
 
         [Then("the browser's title should contain \"([^\"]*)\"")]
@@ -87,26 +87,26 @@ namespace SpecFlow.WatiN
         [Then("I should see an element with id of \"(.*)\"")]
         public void SeeAnElementWithId(string id)
         {
-            Browser.Element(id).ShouldNotBeNull();
+            Browser.Element(id).ShouldExist();
         }
 
         [Then("I should see a form that goes to \"(.*)\"")]
         public void SeeFormThatGoesTo(string url)
         {
-            Browser.Form(Find.By("action", url)).ShouldNotBeNull();
+            Browser.Form(Find.By("action", url)).ShouldExist();
         }
 
         [Then("I should not see an element with id of \"(.*)\"")]
         public void NotSeeAnElementWithId(string id)
         {
-            Browser.Element(id).ShouldBeNull();
+            Browser.Element(id).ShouldNotExist();
         }
 
         [Then("the element with id of \"(.*)\" contains \"(.*)\"")]
         public void ElementWithIdContains(string id, string text)
         {
             Browser.Element(id)
-                .ShouldNotBeNull()
+                .ShouldExist()
                 .Text.ShouldContain(text);
         }
 
@@ -114,7 +114,7 @@ namespace SpecFlow.WatiN
         public void ElementWithIdDoesNotContain(string id, string text)
         {
             Browser.Element(id)
-                .ShouldNotBeNull()
+                .ShouldExist()
                 .Text.ShouldNotContain(text);
         }
 
@@ -140,6 +140,12 @@ namespace SpecFlow.WatiN
         public void OptionShouldNotBeChosen(string text)
         {
             FindBy<CheckBox>(text).ShouldNotBeChecked();
+        }
+
+        [Then("Then I should see a div with id \"(.*)\"")]
+        public void SeeDivWithId(string id)
+        {
+            Browser.Div(id).ShouldExist();
         }
     }
 }
