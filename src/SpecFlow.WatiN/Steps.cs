@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using TechTalk.SpecFlow;
 using WatiN.Core;
@@ -39,7 +40,7 @@ namespace SpecFlow.WatiN
         public void ClickAndConfirm(string text)
         {
             var link = FindBy<Link>(text);
-            StartClicker(link);
+            Confirm(link.ClickNoWait);
         }
 
         [Given("I press \"(.*)\" and confirm the popup")]
@@ -47,17 +48,17 @@ namespace SpecFlow.WatiN
         public void PressAndConfirm(string value)
         {
             var button = FindBy<Button>(value);
-            StartClicker(button);
+            Confirm(button.ClickNoWait);
         }
 
-        void StartClicker(Element element)
+        void Confirm(Action action)
         {
             //TODO: Doesn't work. Can't figure out why...
             var dialogHandler = new ConfirmDialogHandler();
             using (new UseDialogOnce(Browser.DialogWatcher, dialogHandler))
             {
-                element.ClickNoWait();
-                dialogHandler.WaitUntilExists(5);
+                action();
+                dialogHandler.WaitUntilExists();
                 dialogHandler.OKButton.Click();
                 Browser.WaitForComplete();
             }

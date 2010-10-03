@@ -40,7 +40,7 @@ namespace SpecFlow.WatiN
                 .Text.ShouldContain(text);
         }
 
-        [Then("I should see a link with the url \"(.*)\"")]
+        [Then("I should see a link with the url (.*)")]
         public void SeeLinkWithUrlTo(string url)
         {
             Browser.Link(Find.ByUrl(url)).ShouldExist();

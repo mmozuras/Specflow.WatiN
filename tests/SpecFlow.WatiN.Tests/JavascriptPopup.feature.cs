@@ -60,9 +60,24 @@ namespace SpecFlow.WatiN.Tests
 #line 3
 this.ScenarioSetup(scenarioInfo);
 #line 4
-testRunner.Given("I visit http://www.javascripter.net/faq/confirm.htm");
+testRunner.Given("I visit http://www.tizag.com/javascriptT/javascriptconfirm.php");
 #line 5
-testRunner.When("I press \"Try it now\" and confirm the popup");
+testRunner.When("I press \"Leave Tizag.com\" and confirm the popup");
+#line hidden
+            testRunner.CollectScenarioErrors();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Click link and confirm")]
+        public virtual void ClickLinkAndConfirm()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Click link and confirm", ((string[])(null)));
+#line 7
+this.ScenarioSetup(scenarioInfo);
+#line 8
+testRunner.Given("I visit http://www.michael-thomas.com/tech/javascript/ex_confirm.htm");
+#line 9
+testRunner.When("I click \"Confirm OK, then goto URL (uses onclick())\" and confirm the popup");
 #line hidden
             testRunner.CollectScenarioErrors();
         }
